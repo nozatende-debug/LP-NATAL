@@ -162,6 +162,10 @@ export const FAQ = [
     a: "Alguns itens têm opções, como panetone ou chocotone e espumante brut ou moscatel. Fale com a equipe para ajustar o kit ao seu orçamento.",
   },
   {
+    q: "Qual o prazo de entrega?",
+    a: "O envio é rápido: em até 10 dias. Confirme o prazo exato para a sua quantidade ao solicitar o orçamento.",
+  },
+  {
     q: "Como peço um orçamento?",
     a: "Clique em qualquer botão da página e envie a quantidade e o kit desejado pelo WhatsApp. A equipe responde com a proposta.",
   },

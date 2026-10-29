@@ -43,54 +43,63 @@ export function CtaButton({
 
 export function Navbar() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 backdrop-blur-md" style={{ background: "rgba(94,31,43,0.92)" }}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 backdrop-blur-md" style={{ background: "rgba(94,31,43,0.94)" }}>
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
         <a href="#topo" className="font-[family-name:var(--font-noz-display)] text-2xl font-semibold tracking-[0.2em]" style={{ color: cream }}>
           NOZ
         </a>
-        <nav className="hidden items-center gap-7 text-xs uppercase tracking-[0.16em] md:flex" style={{ color: cream }}>
-          <a href="#kits" className="hover:opacity-70">Kits</a>
-          <a href="#como-funciona" className="hover:opacity-70">Como funciona</a>
-          <a href="#duvidas" className="hover:opacity-70">Dúvidas</a>
-        </nav>
+        <p
+          className="hidden items-center gap-3 rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] md:flex"
+          style={{ background: "rgba(201,160,99,0.16)", color: gold, border: "1px solid rgba(201,160,99,0.4)" }}
+        >
+          <span>Envio rápido em até 10 dias</span>
+          <span aria-hidden>|</span>
+          <span>Atendimento em todo Brasil</span>
+        </p>
         <CtaButton variant="gold">Orçamento</CtaButton>
       </div>
+      <p
+        className="px-4 py-1.5 text-center text-[11px] font-semibold uppercase tracking-[0.1em] md:hidden"
+        style={{ background: "rgba(201,160,99,0.16)", color: gold }}
+      >
+        Envio rápido em até 10 dias | Atendimento em todo Brasil
+      </p>
     </header>
   );
 }
 
+const HERO_PHOTOS = [
+  { src: "/noz/conexoes-09.jpg", alt: "Kit Conexões 09 com sacola personalizada", cls: "row-span-2" },
+  { src: "/noz/celebre-07.jpg", alt: "Kit Celebre 07 com bolas acrílicas e vinho", cls: "" },
+  { src: "/noz/celebre-13.jpg", alt: "Kit Celebre 13 com lata de biscoitos e café", cls: "" },
+];
+
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24" style={{ background: wine, color: cream }}>
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+    <section id="topo" className="relative overflow-hidden pt-32 pb-12 md:pt-32 md:pb-16" style={{ background: wine, color: cream }}>
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[1.05fr_1fr]">
         <div>
           <p className="mb-5 flex items-center gap-2 text-xs uppercase tracking-[0.25em]" style={{ color: gold }}>
-            <Star className="h-3 w-3" /> Natal corporativo
+            <Star className="h-3 w-3" /> Natal e fim de ano corporativo
           </p>
-          <h1 className="font-[family-name:var(--font-noz-display)] text-5xl font-medium leading-[1.05] md:text-7xl">
-            Kits de Natal que levam a sua marca à mesa.
+          <h1 className="font-[family-name:var(--font-noz-display)] text-5xl font-medium leading-[1.04] md:text-6xl lg:text-7xl">
+            Brindes de fim de ano que eternizam sua marca.
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed opacity-85">
-            Presentes corporativos personalizados para equipes e clientes, com entrega para todo o Brasil e sem pedido mínimo.
+          <p className="mt-5 max-w-md text-lg leading-relaxed opacity-85">
+            Kits natalinos personalizados para presentear sua equipe e seus clientes, sem pedido mínimo.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-8">
             <CtaButton variant="gold">Solicitar orçamento</CtaButton>
-            <a href="#kits" className="text-sm uppercase tracking-[0.16em] underline underline-offset-8 hover:opacity-70">
-              Ver os kits
-            </a>
           </div>
-          <p className="mt-8 text-sm opacity-70">Kits a partir de R$ 30 por pessoa · Curitiba, PR</p>
+          <p className="mt-6 text-sm opacity-70">Kits a partir de R$ 30 por pessoa</p>
         </div>
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
-          <Image
-            src="/noz/conexoes-09.jpg"
-            alt="Kit Conexões 09 com sacola personalizada, vinho e panetone"
-            fill
-            priority
-            sizes="(min-width: 768px) 448px, 90vw"
-            className="rounded-t-[999px] object-cover"
-          />
-          <Star className="absolute -right-3 top-10 h-9 w-9" />
+        <div className="grid h-[420px] grid-cols-2 grid-rows-2 gap-3 md:h-[480px]">
+          {HERO_PHOTOS.map((ph) => (
+            <div key={ph.src} className={`relative overflow-hidden rounded-2xl ${ph.cls}`}>
+              <Image src={ph.src} alt={ph.alt} fill priority sizes="(min-width: 768px) 280px, 45vw" className="object-cover" />
+            </div>
+          ))}
+          <Star className="pointer-events-none absolute right-6 top-28 hidden h-8 w-8 md:block" />
         </div>
       </div>
     </section>
@@ -98,7 +107,7 @@ export function Hero() {
 }
 
 export function TrustBar() {
-  const items = ["Sem pedido mínimo", "Envio para todo o Brasil", "Marca personalizada", "A partir de R$ 30"];
+  const items = ["Sem pedido mínimo", "Envio rápido em até 10 dias", "Marca personalizada", "Atendimento em todo Brasil"];
   return (
     <section style={{ background: gold, color: "#2a1115" }}>
       <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.14em] md:grid-cols-4">
@@ -111,40 +120,24 @@ export function TrustBar() {
 }
 
 function ProductCard({ p }: { p: Product }) {
-  const msg = `Olá! Quero orçamento do kit ${p.name} (a partir de R$ ${p.price}/un.). Quantidade: `;
+  const msg = `Olá! Quero solicitar orçamento do kit ${p.name}. Quantidade: `;
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl" style={{ background: "#fff8ec", border: "1px solid rgba(94,31,43,0.12)" }}>
+    <article className="flex flex-col overflow-hidden rounded-2xl text-center" style={{ background: "#fff8ec", border: "1px solid rgba(94,31,43,0.12)" }}>
       <div className="relative aspect-[4/5]" style={{ background: green }}>
         <Image src={p.image} alt={`Kit ${p.name}`} fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="object-cover" />
         <span className="absolute left-3 top-3 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ background: cream, color: wine }}>
           {p.line}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6" style={{ color: wine }}>
+      <div className="flex flex-1 flex-col items-center p-6" style={{ color: wine }}>
         <h3 className="font-[family-name:var(--font-noz-display)] text-3xl font-medium">{p.name}</h3>
         <ul className="mt-3 flex-1 space-y-1.5 text-[15px] leading-snug" style={{ color: "#4a2a2f" }}>
           {p.items.map((i) => (
-            <li key={i} className="flex gap-2">
-              <Star className="mt-1.5 h-2 w-2 shrink-0" />
-              {i}
-            </li>
+            <li key={i}>{i}</li>
           ))}
         </ul>
-        <p className="mt-5 font-[family-name:var(--font-noz-display)] text-4xl font-semibold">
-          <span className="mr-1 text-base font-normal opacity-70">R$</span>
-          {p.price}
-          <span className="ml-1 text-sm font-normal opacity-60">/un.</span>
-        </p>
-        <dl className="mt-3 grid grid-cols-4 gap-1 border-t pt-3 text-center text-xs" style={{ borderColor: "rgba(94,31,43,0.15)" }}>
-          {p.tiers.map((t) => (
-            <div key={t.qty}>
-              <dt className="opacity-60">{t.qty} und.</dt>
-              <dd className="font-semibold">R$ {t.price}</dd>
-            </div>
-          ))}
-        </dl>
-        <div className="mt-5">
-          <CtaButton href={whatsappLink(msg)}>Quero este kit</CtaButton>
+        <div className="mt-6 flex w-full justify-center">
+          <CtaButton href={whatsappLink(msg)}>Solicitar orçamento</CtaButton>
         </div>
       </div>
     </article>
@@ -153,20 +146,22 @@ function ProductCard({ p }: { p: Product }) {
 
 export function Products() {
   return (
-    <section id="kits" className="py-20 md:py-28" style={{ background: cream, color: wine }}>
+    <section id="kits" className="py-16 md:py-24" style={{ background: cream, color: wine }}>
       <div className="mx-auto max-w-6xl px-5">
-        <p className="text-xs uppercase tracking-[0.25em]" style={{ color: green }}>Catálogo de Natal</p>
-        <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-noz-display)] text-4xl font-medium leading-tight md:text-6xl">
-          Escolha o kit ideal para o seu time.
-        </h2>
-        <p className="mt-4 max-w-xl text-lg" style={{ color: "#4a2a2f" }}>
-          Quanto maior a quantidade, menor o valor por unidade. Todos os kits podem ter a identidade da sua marca.
-        </p>
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.25em]" style={{ color: green }}>Catálogo de Natal</p>
+          <h2 className="mx-auto mt-3 max-w-2xl font-[family-name:var(--font-noz-display)] text-4xl font-medium leading-tight md:text-6xl">
+            Escolha o kit ideal para o seu time.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg" style={{ color: "#4a2a2f" }}>
+            Todos os kits podem ter a identidade da sua marca. Escolha o seu e solicite o orçamento pelo WhatsApp.
+          </p>
+        </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.map((p) => (
             <ProductCard key={p.slug} p={p} />
           ))}
-          <div className="flex flex-col items-start justify-center rounded-2xl p-8" style={{ background: wine, color: cream }}>
+          <div className="flex flex-col items-center justify-center rounded-2xl p-8 text-center" style={{ background: wine, color: cream }}>
             <h3 className="font-[family-name:var(--font-noz-display)] text-3xl font-medium">Não achou o kit ideal?</h3>
             <p className="mt-3 mb-6 opacity-85">Montamos uma proposta sob medida para o seu orçamento e a sua marca.</p>
             <CtaButton variant="gold">Falar com a NOZ</CtaButton>
@@ -186,12 +181,12 @@ export function HowItWorks() {
   ];
   return (
     <section id="como-funciona" className="py-20 md:py-28" style={{ background: green, color: cream }}>
-      <div className="mx-auto max-w-6xl px-5">
+      <div className="mx-auto max-w-6xl px-5 text-center">
         <p className="text-xs uppercase tracking-[0.25em]" style={{ color: gold }}>Como funciona</p>
-        <h2 className="mt-3 max-w-xl font-[family-name:var(--font-noz-display)] text-4xl font-medium leading-tight md:text-6xl">
+        <h2 className="mx-auto mt-3 max-w-xl font-[family-name:var(--font-noz-display)] text-4xl font-medium leading-tight md:text-6xl">
           Do orçamento à entrega, sem dor de cabeça.
         </h2>
-        <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(([t, d], i) => (
             <li key={t} className="border-t pt-5" style={{ borderColor: "rgba(244,234,217,0.3)" }}>
               <span className="font-[family-name:var(--font-noz-display)] text-5xl" style={{ color: gold }}>0{i + 1}</span>
@@ -252,7 +247,13 @@ export function Footer() {
   return (
     <footer className="py-8 text-center text-sm" style={{ background: "#3f141c", color: "rgba(244,234,217,0.7)" }}>
       <p className="font-[family-name:var(--font-noz-display)] text-xl tracking-[0.2em]" style={{ color: cream }}>NOZ</p>
-      <p className="mt-2">Presentes corporativos · Curitiba, PR · © {new Date().getFullYear()} Noz Presentes</p>
+      <p className="mt-2">Presentes corporativos · © {new Date().getFullYear()} Noz Presentes</p>
+      <p className="mt-2">
+        WhatsApp:{" "}
+        <a href={WHATSAPP_GERAL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-80" style={{ color: cream }}>
+          (41) 98894-5633
+        </a>
+      </p>
     </footer>
   );
 }
