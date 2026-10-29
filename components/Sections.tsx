@@ -114,7 +114,7 @@ function ProductCard({ p }: { p: Product }) {
   const msg = `Olá! Quero orçamento do kit ${p.name} (a partir de R$ ${p.price}/un.). Quantidade: `;
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl" style={{ background: "#fff8ec", border: "1px solid rgba(94,31,43,0.12)" }}>
-      <div className="relative aspect-[4/3]" style={{ background: green }}>
+      <div className="relative aspect-[4/5]" style={{ background: green }}>
         <Image src={p.image} alt={`Kit ${p.name}`} fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="object-cover" />
         <span className="absolute left-3 top-3 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ background: cream, color: wine }}>
           {p.line}
