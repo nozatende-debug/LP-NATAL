@@ -45,8 +45,8 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 backdrop-blur-md" style={{ background: "rgba(94,31,43,0.94)" }}>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-        <a href="#topo" className="font-[family-name:var(--font-noz-display)] text-2xl font-semibold tracking-[0.2em]" style={{ color: cream }}>
-          NOZ
+        <a href="#topo" aria-label="NOZ Presentes">
+          <img src="/noz-logo.svg" alt="NOZ" className="h-9 w-auto" />
         </a>
         <p
           className="hidden items-center gap-3 rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] md:flex"
@@ -83,7 +83,7 @@ export function Hero() {
             <Star className="h-3 w-3" /> Natal e fim de ano corporativo
           </p>
           <h1 className="font-[family-name:var(--font-noz-display)] text-5xl font-medium leading-[1.04] md:text-6xl lg:text-7xl">
-            Brindes de fim de ano que eternizam sua marca.
+            Presentes de fim de ano que eternizam sua marca.
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed opacity-85">
             Kits natalinos personalizados para presentear sua equipe e seus clientes, sem pedido mínimo.
@@ -91,7 +91,7 @@ export function Hero() {
           <div className="mt-8">
             <CtaButton variant="gold">Solicitar orçamento</CtaButton>
           </div>
-          <p className="mt-6 text-sm opacity-70">Kits a partir de R$ 30 por pessoa</p>
+          <p className="mt-6 text-sm opacity-70">Kits a partir de R$15</p>
         </div>
         <div className="grid h-[420px] grid-cols-2 grid-rows-2 gap-3 md:h-[480px]">
           {HERO_PHOTOS.map((ph) => (
@@ -246,7 +246,7 @@ export function FinalCta() {
 export function Footer() {
   return (
     <footer className="py-8 text-center text-sm" style={{ background: "#3f141c", color: "rgba(244,234,217,0.7)" }}>
-      <p className="font-[family-name:var(--font-noz-display)] text-xl tracking-[0.2em]" style={{ color: cream }}>NOZ</p>
+      <img src="/noz-logo.svg" alt="NOZ" className="mx-auto h-9 w-auto" />
       <p className="mt-2">Presentes corporativos · © {new Date().getFullYear()} Noz Presentes</p>
       <p className="mt-2">
         WhatsApp:{" "}

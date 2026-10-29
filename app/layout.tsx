@@ -19,7 +19,7 @@ const body = Jost({
 export const metadata: Metadata = {
   title: "Kits de Natal Corporativos Personalizados | NOZ",
   description:
-    "Kits de Natal corporativos com a sua marca, a partir de R$ 30 por pessoa. Envio para todo o Brasil e sem pedido mínimo. Peça seu orçamento no WhatsApp.",
+    "Kits de Natal corporativos com a sua marca, a partir de R$15. Envio para todo o Brasil e sem pedido mínimo. Peça seu orçamento no WhatsApp.",
   robots: { index: false, follow: false },
 };
 
