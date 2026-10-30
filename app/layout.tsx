@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -33,6 +34,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         style={{ fontFamily: "var(--font-noz-body), sans-serif" }}
       >
         {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-314JJ5TJRT" strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-314JJ5TJRT');`}
+        </Script>
       </body>
     </html>
   );
