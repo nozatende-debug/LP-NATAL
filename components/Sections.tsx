@@ -69,34 +69,34 @@ export function Navbar() {
 }
 
 const HERO_PHOTOS = [
-  { src: "/noz/conexoes-09.jpg", alt: "Kit Conexões 09 com sacola personalizada", cls: "row-span-2" },
+  { src: "/noz/conexoes-09.jpg", alt: "Kit Conexões 09 com sacola personalizada", cls: "" },
   { src: "/noz/celebre-07.jpg", alt: "Kit Celebre 07 com bolas acrílicas e vinho", cls: "" },
   { src: "/noz/celebre-13.jpg", alt: "Kit Celebre 13 com lata de biscoitos e café", cls: "" },
 ];
 
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden pt-32 pb-12 md:pt-32 md:pb-16" style={{ background: wine, color: cream }}>
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[1.05fr_1fr]">
+    <section id="topo" className="relative overflow-hidden pt-28 pb-8 md:pt-28 md:pb-10" style={{ background: wine, color: cream }}>
+      <div className="mx-auto grid max-w-6xl items-center gap-6 px-5 md:grid-cols-[1.05fr_1fr] md:gap-10">
         <div>
-          <p className="mb-5 flex items-center gap-2 text-xs uppercase tracking-[0.25em]" style={{ color: gold }}>
+          <p className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.25em]" style={{ color: gold }}>
             <Star className="h-3 w-3" /> Natal e fim de ano corporativo
           </p>
-          <h1 className="font-[family-name:var(--font-noz-display)] text-5xl font-medium leading-[1.04] md:text-6xl lg:text-7xl">
+          <h1 className="font-[family-name:var(--font-noz-display)] text-4xl font-medium leading-[1.05] md:text-5xl lg:text-6xl">
             Presentes de fim de ano que eternizam sua marca.
           </h1>
-          <p className="mt-5 max-w-md text-lg leading-relaxed opacity-85">
+          <p className="mt-3 max-w-md text-base leading-relaxed opacity-85 md:text-lg">
             Kits natalinos personalizados para presentear sua equipe e seus clientes, sem pedido mínimo.
           </p>
-          <div className="mt-8">
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
             <CtaButton variant="gold">Solicitar orçamento</CtaButton>
+            <p className="text-sm opacity-70">Kits a partir de R$15</p>
           </div>
-          <p className="mt-6 text-sm opacity-70">Kits a partir de R$15</p>
         </div>
-        <div className="grid h-[420px] grid-cols-2 grid-rows-2 gap-3 md:h-[480px]">
+        <div className="grid h-[150px] grid-cols-3 gap-2 md:h-[260px] md:gap-3">
           {HERO_PHOTOS.map((ph) => (
             <div key={ph.src} className={`relative overflow-hidden rounded-2xl ${ph.cls}`}>
-              <Image src={ph.src} alt={ph.alt} fill priority sizes="(min-width: 768px) 280px, 45vw" className="object-cover" />
+              <Image src={ph.src} alt={ph.alt} fill priority sizes="(min-width: 768px) 200px, 33vw" className="object-cover" />
             </div>
           ))}
           <Star className="pointer-events-none absolute right-6 top-28 hidden h-8 w-8 md:block" />
